@@ -1,0 +1,14 @@
+
+\chapter*{Conclusioni}
+\addcontentsline{toc}{chapter}{Conclusioni}
+
+Allo stato attuale di sviluppo del motore di ricerca si può affermare che i risultati siano soddisfacenti e si stima che la nuova funzionalità sarà sicuramente apprezzata da parte degli utenti che utilizzano quotidianamente Arkivium. I pareri di quest’ultimi verranno tenuti in considerazione per valutare l’efficacia del sistema e, nei mesi successivi al rilascio, seguiranno eventuali raffinamenti per migliorare l’attendibilità dei risultati ottenuti da un'interrogazione. Come accennato nella sezione degli sviluppi futuri, verranno implementate nuove funzionalità per migliorare sia la ricerca che l’integrazione con le funzionalità di Arkivium già esistenti.
+
+\vspace{1em}
+
+A valle del lavoro svolto è sicuramente interessante notare che, nonostante Solr si prefigga l'obiettivo di rendere trasparente l’infrastruttura e il funzionamento sottostante, ciò sia vero solamente per quanto riguarda l’utilizzo degli indici inversi e dei modelli matematici che consentono di effettuare il \textit{matching} fra query e documenti; tuttavia, non si dimostra altrettanto immediata la progettazione dell’\textbf{analisi} da applicare al testo né le modalità di \textit{\textbf{boosting}} dei vari campi che costituiscono i documenti. Queste sono due caratteristiche di cui il progettista del sistema deve occuparsi personalmente e che richiedono un certo livello di esperienza affinché i risultati presentati siano coerenti con le reali esigenze dell’utente; per questo motivo rappresentano anche i primi parametri sui quali si agirà in futuro qualora si riscontrassero risultati di ricerca non pienamente soddisfacenti. Un ulteriore margine di miglioramento lo si potrà ottenere tramite la gestione dei termini attraverso l’espansione dei \textit{quasi-sinonimi}, sfruttando opportuni dizionari linguistici o soluzioni personalizzate per ciascun cliente.
+
+\vspace{1em}
+
+In futuro si pensa che alcune funzionalità di \textit{enterprise search} verranno estese anche ad altri software dell’azienda, sfruttando le competenze apprese nell’utilizzo di Apache Solr o sperimentando piattaforme analoghe, come potrebbero essere per esempio ElasticSearch\footnote{\url{https://www.elastic.co/}} o Algolia\footnote{\url{https://www.algolia.com/}}. Infatti, appresi i principali concetti di Information Retrieval e viste le esigenze e le problematiche che scaturiscono dalla progettazione di un motore di ricerca, potrebbe emergere - a seguito di un accurato confronto - che altri strumenti potrebbero essere più adatti di Apache Solr a soddisfare alcune specifiche necessità funzionali o architetturali.
+

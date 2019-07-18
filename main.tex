@@ -1,0 +1,146 @@
+\RequirePackage[hyphens]{url}
+\documentclass[a4paper,12pt, oneside]{book}
+%\usepackage[a4paper,margin=2in]{geometry}
+\usepackage[top=30mm, bottom=30mm, left=30mm, right=25mm]{geometry}
+\linespread{1.1} % interlinea
+%\usepackage{fullpage}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage[square,numbers,super]{natbib}
+\usepackage[italian]{babel}
+\usepackage[bottom]{footmisc} % footnotes sempre in basso
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amstext}
+\usepackage{lscape}
+\usepackage[nottoc]{tocbibind}
+\usepackage{engrec}
+\usepackage{microtype}
+\usepackage{enumerate}
+\usepackage{marginnote}
+\usepackage{float}
+\usepackage{setspace}
+\usepackage{url}
+\usepackage{soul}
+\usepackage{graphics}
+\usepackage{graphicx,wrapfig,lipsum}
+\graphicspath{ {images/} } % le immagini vanno in images/
+
+\usepackage[breaklinks=true, hidelinks]{hyperref}
+\def\UrlBreaks{%
+  \do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]%
+  \do\)\do\,\do\?\do\'\do+\do\=\do\#%
+  \do\/\do\a\do\b\do\c\do\d\do\e\do\f%
+  \do\g\do\h\do\i\do\j\do\k\do\l\do\m%
+  \do\n\do\o\do\p\do\q\do\r\do\s\do\t%
+  \do\u\do\v\do\w\do\x\do\y\do\z%
+  \do\A\do\B\do\C\do\D\do\E\do\F\do\G%
+  \do\H\do\I\do\J\do\K\do\L\do\M\do\N%
+  \do\O\do\P\do\Q\do\R\do\S\do\T\do\U%
+  \do\V\do\W\do\X\do\Y\do\Z\do\,\do\%%
+  \do\1\do\2\do\3\do\4\do\5\do\6\do\7%
+  \do\8\do\9\do\0} % consente newline negli url dopo i caratteri elencati
+
+% itemize
+\usepackage{enumitem} 
+\setlist[itemize]{itemsep=0.3ex}
+
+% header in alto (num-nome capitolo)
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headsep}{0.40in}
+\let\MakeUppercase\relax
+\renewcommand\sectionmark[1]{}
+
+% blocchi di codice
+\usepackage[newfloat]{minted}
+\setminted[xml]{
+  frame=lines,
+  baselinestretch=1.1,
+  fontsize=\footnotesize,
+  linenos,
+  numbers=none,
+}
+\setminted[json]{
+  frame=lines,
+  baselinestretch=1,
+  fontsize=\small,
+  linenos,
+  numbers=none,
+}
+
+\usepackage{caption}
+\captionsetup[listing]{position=bottom,skip=-5pt}
+
+\usepackage{listings}
+\lstset{
+	breaklines=true, 
+	frame=single, 
+	numbers=left,
+	tabsize=2,
+	basicstyle=\scriptsize,
+	showstringspaces=false
+}
+\renewcommand{\listingname}{Listato}
+
+\frenchspacing
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BEGIN
+\begin{document}
+
+
+%%%%%%%%%%%% PARTE INIZIALE
+
+\input frontespizio
+
+\pagenumbering{Roman} % Start roman numbering
+
+\thispagestyle{plain}
+\input chapters/001-dedica
+\input chapters/002-abstract
+
+\pagestyle{plain}
+\pdfbookmark{\contentsname}{Indice}
+\tableofcontents
+%\listoffigures
+\clearpage
+
+
+\pagestyle{fancy}
+\input chapters/005-introduzione
+\clearpage
+
+%%%% FONTI NON CITATE NEL TESTO
+\nocite{introductionIR}
+\nocite{luceneaction}
+\nocite{solraction}
+\nocite{solrmanual}
+
+
+
+%%%%%%%%%%%% PARTE CENTRALE
+
+\pagenumbering{arabic} % Switch to normal numbers
+\input capitoli
+\clearpage
+
+
+
+%%%%%%%%%%%% PARTE FINALE
+
+\pagenumbering{Roman} % Switch to roman numbering
+\setcounter{page}{10}
+\input chapters/050-conclusioni
+
+\bibliographystyle{unsrtnat}
+\bibliography{bibliografia}
+
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% END
+
+
+
